@@ -1,0 +1,10 @@
+.productSummary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.price {
+  color: var(--vkui--color_text_positive);
+}

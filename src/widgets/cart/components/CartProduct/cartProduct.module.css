@@ -1,0 +1,11 @@
+.cartItemWrapper {
+  display: flex;
+}
+
+.cartProduct {
+  flex: 3;
+}
+
+.productImageWrapper img {
+  object-fit: contain;
+}
