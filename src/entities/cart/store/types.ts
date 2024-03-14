@@ -1,7 +1,7 @@
-import { Product } from 'entities/product';
+import { CartItem } from '..';
 
 export interface CartState {
   isLoading: boolean;
   error: string | null;
-  products: Product[];
+  cartItems: CartItem[];
 }
