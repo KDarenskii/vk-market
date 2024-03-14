@@ -12,6 +12,7 @@
     "^widgets(.*)$",
     "^features(.*)$",
     "^entities(.*)$",
+    "^store(.*)$",
     "^shared(.*)$",
     "^(@vkontakte/vkui/(.*)$)|^(@vkontakte/vkui$)",
     "^(@vkontakte/icons/(.*)$)|^(@vkontakte/icons$)",
