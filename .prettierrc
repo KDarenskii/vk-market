@@ -1,0 +1,27 @@
+{
+  "semi": true,
+  "semicolons": true,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "endOfLine": "auto",
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "<THIRD_PARTY_MODULES>",
+    "^app(.*)$",
+    "^pages(.*)$",
+    "^widgets(.*)$",
+    "^features(.*)$",
+    "^entities(.*)$",
+    "^shared(.*)$",
+    "^(@vkontakte/vkui/(.*)$)|^(@vkontakte/vkui$)",
+    "^(@vkontakte/icons/(.*)$)|^(@vkontakte/icons$)",
+    "^(\\.\\./[^.]*|\\.\\.)$",
+    "^../(.*)$",
+    "^./[^.]*$",
+    "^./(.*)\\.(?!css|scss)$",
+    "^.*\\.(css|scss)$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+}
