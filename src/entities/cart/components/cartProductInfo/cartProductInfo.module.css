@@ -1,0 +1,11 @@
+.productInfo {
+  flex: 1;
+}
+
+.productCategory {
+  max-width: min-content;
+}
+
+.productPrice {
+  color: var(--vkui--color_text_accent);
+}
