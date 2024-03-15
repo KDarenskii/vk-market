@@ -12,12 +12,16 @@ interface CartProductCounterProps {
   count: number;
   onIncrease: () => void;
   onDecrease: () => void;
+  isIncreaseDisabled?: boolean;
+  isDecreaseDisabled?: boolean;
 }
 
 export const CartProductCounter: FC<CartProductCounterProps> = ({
   count,
   onDecrease,
   onIncrease,
+  isDecreaseDisabled,
+  isIncreaseDisabled,
 }) => {
   return (
     <div className={styles.counterWrapper}>
@@ -25,7 +29,11 @@ export const CartProductCounter: FC<CartProductCounterProps> = ({
         label="Убрать"
         onClick={onDecrease}
         borderRadiusMode="inherit"
-        className={cn(styles.counterButton, styles.disabled)}
+        disabled={isDecreaseDisabled}
+        className={cn(
+          styles.counterButton,
+          isDecreaseDisabled && styles.disabled
+        )}
       >
         <Icon24MinusOutline />
       </IconButton>
@@ -34,8 +42,11 @@ export const CartProductCounter: FC<CartProductCounterProps> = ({
         borderRadiusMode="inherit"
         label="Добавить"
         onClick={onIncrease}
-        disabled={false}
-        className={cn(styles.counterButton, false && styles.disabled)}
+        disabled={isIncreaseDisabled}
+        className={cn(
+          styles.counterButton,
+          isIncreaseDisabled && styles.disabled
+        )}
       >
         <Icon24AddOutline />
       </IconButton>
