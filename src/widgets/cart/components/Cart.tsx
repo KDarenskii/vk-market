@@ -1,6 +1,8 @@
 import { FC, useEffect } from 'react';
 
-import { CartTotalPrice, fetchCartItems, selectCart } from 'entities/cart';
+import { CartTotalPrice } from 'features/cart';
+
+import { fetchCartItems, selectCart } from 'entities/cart';
 
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 
@@ -31,7 +33,7 @@ export const Cart: FC = () => {
             <CartList cartItems={cartItems} />
             <Spacing size={16} />
             <Separator />
-            <CartTotalPrice price={1596} />
+            <CartTotalPrice />
           </>
         )}
       </Group>
