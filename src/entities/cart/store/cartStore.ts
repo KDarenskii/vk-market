@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { defaultCartState } from './defaultState';
 import { fetchCartItems } from './thunks/fetchCartItems';
@@ -6,7 +6,22 @@ import { fetchCartItems } from './thunks/fetchCartItems';
 const cartSlice = createSlice({
   name: 'cart',
   initialState: defaultCartState,
-  reducers: {},
+  reducers: {
+    increaseCartItemAmount: (state, action: PayloadAction<number>) => {
+      state.cartItems = state.cartItems.map((cartItem) =>
+        cartItem.id === action.payload
+          ? { ...cartItem, amount: cartItem.amount + 1 }
+          : cartItem
+      );
+    },
+    decreaseCartItemAmount: (state, action: PayloadAction<number>) => {
+      state.cartItems = state.cartItems.map((cartItem) =>
+        cartItem.id === action.payload
+          ? { ...cartItem, amount: cartItem.amount - 1 }
+          : cartItem
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCartItems.pending, (state) => {
@@ -27,4 +42,6 @@ const cartSlice = createSlice({
   },
 });
 
+export const { decreaseCartItemAmount, increaseCartItemAmount } =
+  cartSlice.actions;
 export const cartReducer = cartSlice.reducer;
