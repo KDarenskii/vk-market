@@ -1,8 +1,7 @@
 import { FC } from 'react';
 
-import { CartPage } from 'pages/CartPage';
-
 import { WithRedux } from './providers/WithRedux';
+import { Router } from './providers/WithRouter';
 import { WithTheme } from './providers/WithTheme';
 import { WithUIKitConfig } from './providers/WithUIKitConfig';
 
@@ -11,7 +10,7 @@ export const App: FC = () => {
     <WithTheme>
       <WithUIKitConfig>
         <WithRedux>
-          <CartPage />
+          <Router />
         </WithRedux>
       </WithUIKitConfig>
     </WithTheme>
