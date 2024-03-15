@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 
-import { CartTotalPrice } from 'features/cart';
+import { CartHeader, CartTotalPrice } from 'features/cart';
 
 import { fetchCartItems, selectCart } from 'entities/cart';
 
@@ -8,7 +8,6 @@ import { useAppDispatch, useAppSelector } from 'shared/hooks';
 
 import { Div, Group, PanelSpinner, Separator, Spacing } from '@vkontakte/vkui';
 
-import { CartHeader } from './CartHeader';
 import { CartList } from './CartList';
 
 export const Cart: FC = () => {
@@ -23,7 +22,7 @@ export const Cart: FC = () => {
   return (
     <Div>
       <Group>
-        <CartHeader cartItemsAmount={cartItems.length} />
+        <CartHeader />
         <Spacing size={16} />
         <Separator />
         <Spacing size={16} />
