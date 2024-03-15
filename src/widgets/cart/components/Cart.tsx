@@ -27,7 +27,7 @@ export const Cart: FC = () => {
         <Separator />
         <Spacing size={16} />
         {isLoading && <PanelSpinner>Список товаров загружается</PanelSpinner>}
-        {!isLoading && (
+        {!isLoading && cartItems.length > 0 && (
           <>
             <CartList cartItems={cartItems} />
             <Spacing size={16} />
