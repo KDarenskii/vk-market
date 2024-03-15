@@ -4,25 +4,27 @@ import {
   CartProductCounter,
   CartProductInfo,
   CartProductSummary,
+  CartItem as ICartItem,
 } from 'entities/cart';
-import { Product } from 'entities/product';
 
 import { Cell, Group, Image } from '@vkontakte/vkui';
 
-import styles from './cartProduct.module.css';
+import styles from './cartItem.module.css';
 
-interface CartProductProps {
-  product: Product;
+interface CartItemProps {
+  cartItem: ICartItem;
 }
 
-export const CartProduct: FC<CartProductProps> = ({ product }) => {
+export const CartItem: FC<CartItemProps> = ({ cartItem }) => {
+  const { product } = cartItem;
+
   return (
     <Group className={styles.cartItemWrapper} mode="plain">
       <Cell
         className={styles.cartProduct}
         after={
           <CartProductCounter
-            count={5}
+            count={cartItem.amount}
             onDecrease={() => {}}
             onIncrease={() => {}}
           />
@@ -30,19 +32,19 @@ export const CartProduct: FC<CartProductProps> = ({ product }) => {
         before={
           <Image
             size={110}
-            src={product.imageUrl}
+            src={product.image}
             className={styles.productImageWrapper}
           />
         }
       >
         <CartProductInfo
-          category={'одежда'}
+          category={product.category}
           description={product.description}
           price={product.price}
           title={product.title}
         />
       </Cell>
-      <CartProductSummary price={596} />
+      <CartProductSummary price={product.price} />
     </Group>
   );
 };
