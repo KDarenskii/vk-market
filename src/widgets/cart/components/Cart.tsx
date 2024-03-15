@@ -2,7 +2,11 @@ import { FC, useEffect } from 'react';
 
 import { CartHeader, CartTotalPrice } from 'features/cart';
 
-import { fetchCartItems, selectCart } from 'entities/cart';
+import {
+  CartEmptyPlaceholder,
+  fetchCartItems,
+  selectCart,
+} from 'entities/cart';
 
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 
@@ -27,6 +31,7 @@ export const Cart: FC = () => {
         <Separator />
         <Spacing size={16} />
         {isLoading && <PanelSpinner>Список товаров загружается</PanelSpinner>}
+        {!isLoading && cartItems.length === 0 && <CartEmptyPlaceholder />}
         {!isLoading && cartItems.length > 0 && (
           <>
             <CartList cartItems={cartItems} />
