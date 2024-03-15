@@ -4,7 +4,7 @@ import { CartItem } from '..';
 import { cartApi } from '../api/cartApi';
 
 export class CartService {
-  static getCartProducts: AxiosRequest<CartItem[]> = async (config) => {
+  static getCartItems: AxiosRequest<CartItem[]> = async (config) => {
     return cartApi.get('/cart', config);
   };
 }
