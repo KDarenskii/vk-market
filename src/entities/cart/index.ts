@@ -5,6 +5,7 @@ export {
   cartReducer,
   decreaseCartItemAmount,
   increaseCartItemAmount,
+  removeCartItem,
 } from './store/cartStore';
 export type { CartItem } from './types/cartItem';
 export { CartService } from './services/CartService';
