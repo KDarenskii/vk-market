@@ -10,6 +10,7 @@ import { Icon20DeleteOutline } from '@vkontakte/icons';
 
 export const CartHeader: FC = () => {
   const dispatch = useAppDispatch();
+
   const { cartItems } = useAppSelector(selectCart);
 
   return (
@@ -24,15 +25,17 @@ export const CartHeader: FC = () => {
         )
       }
       aside={
-        <Button
-          appearance="negative"
-          mode="primary"
-          size="m"
-          onClick={() => dispatch(clearCart())}
-          after={<Icon20DeleteOutline />}
-        >
-          Очистить корзину
-        </Button>
+        cartItems.length > 0 && (
+          <Button
+            appearance="negative"
+            mode="primary"
+            size="m"
+            onClick={() => dispatch(clearCart())}
+            after={<Icon20DeleteOutline />}
+          >
+            Очистить корзину
+          </Button>
+        )
       }
     >
       Корзина товаров
