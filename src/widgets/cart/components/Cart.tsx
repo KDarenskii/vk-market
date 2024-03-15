@@ -1,24 +1,39 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
-import { CartTotalPrice } from 'entities/cart';
+import { CartTotalPrice, fetchCartItems, selectCart } from 'entities/cart';
 
-import { Div, Group, Separator, Spacing } from '@vkontakte/vkui';
+import { useAppDispatch, useAppSelector } from 'shared/hooks';
+
+import { Div, Group, PanelSpinner, Separator, Spacing } from '@vkontakte/vkui';
 
 import { CartHeader } from './CartHeader';
 import { CartList } from './CartList';
 
 export const Cart: FC = () => {
+  const dispatch = useAppDispatch();
+
+  const { isLoading, cartItems } = useAppSelector(selectCart);
+
+  useEffect(() => {
+    dispatch(fetchCartItems());
+  }, [dispatch]);
+
   return (
     <Div>
       <Group>
-        <CartHeader />
+        <CartHeader cartItemsAmount={cartItems.length} />
         <Spacing size={16} />
         <Separator />
         <Spacing size={16} />
-        <CartList />
-        <Spacing size={16} />
-        <Separator />
-        <CartTotalPrice price={1596} />
+        {isLoading && <PanelSpinner>Список товаров загружается</PanelSpinner>}
+        {!isLoading && (
+          <>
+            <CartList cartItems={cartItems} />
+            <Spacing size={16} />
+            <Separator />
+            <CartTotalPrice price={1596} />
+          </>
+        )}
       </Group>
     </Div>
   );
