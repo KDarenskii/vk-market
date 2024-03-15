@@ -14,7 +14,7 @@ export const CartHeader: FC<CartHeaderProps> = ({ cartItemsAmount }) => {
       indicator={
         !!cartItemsAmount && (
           <Counter size="m" mode="secondary">
-            3
+            {cartItemsAmount}
           </Counter>
         )
       }
