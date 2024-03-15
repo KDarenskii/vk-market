@@ -12,7 +12,7 @@ export const CartPage: FC = () => {
       <Panel id="cart">
         <PanelHeader
           after={
-            <IconButton onClick={() => {}}>
+            <IconButton onClick={() => {}} aria-label="Корзина">
               <Icon28ShoppingCartOutline />
             </IconButton>
           }
