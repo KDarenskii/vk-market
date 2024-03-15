@@ -1,1 +1,0 @@
-export { CartTotalPrice } from './CartTotalPrice';
