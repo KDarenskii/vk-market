@@ -1,0 +1,8 @@
+.deleteButton svg {
+  color: var(--vkui--color_icon_negative);
+}
+
+.deleteButton:hover {
+  background-color: var(--vkui--color_background_negative_tint--hover);
+  color: var(--vkui--color_icon_negative--hover);
+}
