@@ -1,6 +1,10 @@
 import { FC } from 'react';
 
-import { CartItemAmount, CartItemPrice } from 'features/cart';
+import {
+  CartItemAmount,
+  CartItemDeleteButton,
+  CartItemPrice,
+} from 'features/cart';
 
 import { CartProductInfo, CartItem as ICartItem } from 'entities/cart';
 
@@ -34,6 +38,7 @@ export const CartItem: FC<CartItemProps> = ({ cartItem }) => {
           price={product.price}
           title={product.title}
         />
+        <CartItemDeleteButton cartItemId={cartItem.id} />
       </Cell>
       <CartItemPrice cartItemId={id} />
     </Group>
