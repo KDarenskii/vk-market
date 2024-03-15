@@ -1,11 +1,8 @@
 import { FC } from 'react';
 
-import {
-  CartProductCounter,
-  CartProductInfo,
-  CartProductSummary,
-  CartItem as ICartItem,
-} from 'entities/cart';
+import { CartItemAmount, CartItemPrice } from 'features/cart';
+
+import { CartProductInfo, CartItem as ICartItem } from 'entities/cart';
 
 import { Cell, Group, Image } from '@vkontakte/vkui';
 
@@ -16,19 +13,13 @@ interface CartItemProps {
 }
 
 export const CartItem: FC<CartItemProps> = ({ cartItem }) => {
-  const { product } = cartItem;
+  const { product, id } = cartItem;
 
   return (
     <Group className={styles.cartItemWrapper} mode="plain">
       <Cell
         className={styles.cartProduct}
-        after={
-          <CartProductCounter
-            count={cartItem.amount}
-            onDecrease={() => {}}
-            onIncrease={() => {}}
-          />
-        }
+        after={<CartItemAmount cartItemId={id} />}
         before={
           <Image
             size={110}
@@ -44,7 +35,7 @@ export const CartItem: FC<CartItemProps> = ({ cartItem }) => {
           title={product.title}
         />
       </Cell>
-      <CartProductSummary price={product.price} />
+      <CartItemPrice cartItemId={id} />
     </Group>
   );
 };
