@@ -2,23 +2,15 @@ import { FC } from 'react';
 
 import { Cart } from 'widgets/cart';
 
-import { IconButton, Panel, PanelHeader, View } from '@vkontakte/vkui';
+import { Panel, View } from '@vkontakte/vkui';
 
-import { Icon28ShoppingCartOutline } from '@vkontakte/icons';
+import { PageHeader } from './layout/PageHeader';
 
 export const CartPage: FC = () => {
   return (
     <View activePanel="cart">
       <Panel id="cart">
-        <PanelHeader
-          after={
-            <IconButton onClick={() => {}} aria-label="Корзина">
-              <Icon28ShoppingCartOutline />
-            </IconButton>
-          }
-        >
-          VK Market
-        </PanelHeader>
+        <PageHeader />
         <Cart />
       </Panel>
     </View>
