@@ -1,27 +1,17 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
 import { CartHeader, CartTotalPrice } from 'features/cart';
 
-import {
-  CartEmptyPlaceholder,
-  fetchCartItems,
-  selectCart,
-} from 'entities/cart';
+import { CartEmptyPlaceholder, selectCart } from 'entities/cart';
 
-import { useAppDispatch, useAppSelector } from 'shared/hooks';
+import { useAppSelector } from 'shared/hooks';
 
 import { Div, Group, PanelSpinner, Separator, Spacing } from '@vkontakte/vkui';
 
 import { CartList } from './CartList';
 
 export const Cart: FC = () => {
-  const dispatch = useAppDispatch();
-
   const { isLoading, cartItems } = useAppSelector(selectCart);
-
-  useEffect(() => {
-    dispatch(fetchCartItems());
-  }, [dispatch]);
 
   return (
     <Div>
