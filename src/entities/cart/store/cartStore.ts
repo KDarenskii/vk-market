@@ -1,5 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
+import { Product } from 'entities/product';
+
+import { getRandomInRange } from 'shared/helpers';
+
+import { CartItem } from '..';
+
 import { defaultCartState } from './defaultState';
 import { fetchCartItems } from './thunks/fetchCartItems';
 
@@ -29,6 +35,14 @@ const cartSlice = createSlice({
     clearCart: (state) => {
       state.cartItems = [];
     },
+    addCartItem: (state, action: PayloadAction<Product>) => {
+      const newCartItem: CartItem = {
+        id: getRandomInRange(50, 1000),
+        amount: 1,
+        product: action.payload,
+      };
+      state.cartItems = [newCartItem, ...state.cartItems];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -55,5 +69,6 @@ export const {
   increaseCartItemAmount,
   removeCartItem,
   clearCart,
+  addCartItem,
 } = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;

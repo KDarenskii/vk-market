@@ -1,17 +1,17 @@
 import { FC } from 'react';
 
-import { Cart } from 'widgets/cart';
+import { Products } from 'widgets/products';
 
 import { Panel, View } from '@vkontakte/vkui';
 
 import { PageHeader } from './layout/PageHeader';
 
-export const CartPage: FC = () => {
+export const ProductsPage: FC = () => {
   return (
-    <View activePanel="cart">
-      <Panel id="cart">
+    <View activePanel="products">
+      <Panel id="products">
         <PageHeader />
-        <Cart />
+        <Products />
       </Panel>
     </View>
   );
