@@ -8,3 +8,11 @@
 .price {
   color: var(--vkui--color_text_positive);
 }
+
+@media (max-width: 650px) {
+  .productSummary {
+    justify-content: flex-end;
+    padding-left: var(--vkui--size_base_padding_horizontal--regular);
+    padding-right: var(--vkui--size_base_padding_horizontal--regular);
+  }
+}
