@@ -6,9 +6,15 @@ import { useCartItemAmount } from './useCartItemAmount';
 
 interface CartItemAmountProps {
   cartItemId: number;
+  size?: 'm' | 's';
+  className?: string;
 }
 
-export const CartItemAmount: FC<CartItemAmountProps> = ({ cartItemId }) => {
+export const CartItemAmount: FC<CartItemAmountProps> = ({
+  cartItemId,
+  size = 'm',
+  className,
+}) => {
   const {
     amount,
     addCartItem,
@@ -21,11 +27,13 @@ export const CartItemAmount: FC<CartItemAmountProps> = ({ cartItemId }) => {
 
   return (
     <CartProductCounter
+      className={className}
       count={amount}
       onDecrease={removeCartItem}
       onIncrease={addCartItem}
       isDecreaseDisabled={isDecreaseDisabled}
       isIncreaseDisabled={isIncreaseDisabled}
+      size={size}
     />
   );
 };
