@@ -1,8 +1,13 @@
 import { FC } from 'react';
 
+import { selectProductsState } from 'entities/product';
+
+import { useAppSelector } from 'shared/hooks';
+
 import { Counter, Header } from '@vkontakte/vkui';
 
 export const ProductsHeader: FC = () => {
+  const { products } = useAppSelector(selectProductsState);
 
   return (
     <Header
@@ -10,7 +15,7 @@ export const ProductsHeader: FC = () => {
       size="large"
       indicator={
         <Counter size="m" mode="secondary">
-          {10}
+          {products.length}
         </Counter>
       }
     >
