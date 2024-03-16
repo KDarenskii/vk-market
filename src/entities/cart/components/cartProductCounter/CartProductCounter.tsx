@@ -4,7 +4,7 @@ import cn from 'clsx';
 
 import { IconButton } from '@vkontakte/vkui';
 
-import { Icon24AddOutline, Icon24MinusOutline } from '@vkontakte/icons';
+import { Icon20Add, Icon20MinusOutline } from '@vkontakte/icons';
 
 import styles from './cartProductCounter.module.css';
 
@@ -35,7 +35,7 @@ export const CartProductCounter: FC<CartProductCounterProps> = ({
           isDecreaseDisabled && styles.disabled
         )}
       >
-        <Icon24MinusOutline />
+        <Icon20MinusOutline />
       </IconButton>
       <div className={styles.counterNumber}>{count}</div>
       <IconButton
@@ -48,7 +48,7 @@ export const CartProductCounter: FC<CartProductCounterProps> = ({
           isIncreaseDisabled && styles.disabled
         )}
       >
-        <Icon24AddOutline />
+        <Icon20Add />
       </IconButton>
     </div>
   );
