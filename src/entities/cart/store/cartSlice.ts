@@ -56,10 +56,12 @@ const cartSlice = createSlice({
         state.isLoading = false;
         state.cartItems = action.payload;
       })
-      .addCase(fetchCartItems.rejected, (state) => {
-        state.error = 'Что-то пошло не так';
-        state.isLoading = false;
-        state.cartItems = [];
+      .addCase(fetchCartItems.rejected, (state, action) => {
+        if (action.payload !== 'canceled') {
+          state.error = 'Что-то пошло не так';
+          state.isLoading = false;
+          state.cartItems = [];
+        }
       });
   },
 });
