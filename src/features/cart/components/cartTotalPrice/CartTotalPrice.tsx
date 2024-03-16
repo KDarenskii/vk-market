@@ -22,7 +22,7 @@ export const CartTotalPrice: FC = () => {
 
   return (
     <Div>
-      <Title className={styles.priceText} level='2'>
+      <Title className={styles.priceText} level="2">
         Итоговая цена корзины: {formatCurrency(cartPrice)}
       </Title>
     </Div>

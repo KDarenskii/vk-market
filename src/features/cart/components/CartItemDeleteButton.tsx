@@ -9,7 +9,9 @@ interface CartDeleteButtonProps {
   cartItemId: number;
 }
 
-export const CartItemDeleteButton: FC<CartDeleteButtonProps> = ({ cartItemId }) => {
+export const CartItemDeleteButton: FC<CartDeleteButtonProps> = ({
+  cartItemId,
+}) => {
   const dispatch = useAppDispatch();
 
   return (
