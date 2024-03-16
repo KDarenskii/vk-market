@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 
-import { ProductsHeader } from 'features/product';
+import { ProductsHeader, ProductsSearch } from 'features/product';
 
 import {
   Product,
@@ -45,6 +45,7 @@ export const Products: FC = () => {
           <Spacing size={16} />
           <Separator />
           <Spacing size={16} />
+          <ProductsSearch />
           <Loader isLoading={isLoading} />
           <Error isError={!!error} />
           <EmptyStateMessage
