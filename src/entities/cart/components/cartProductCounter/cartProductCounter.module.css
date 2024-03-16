@@ -7,12 +7,19 @@
   border-radius: var(--vkui--size_border_radius_paper--regular);
   border: 1px solid rgb(55, 55, 55);
   color: var(--vkui--color_text_primary);
-  width: 75px;
+  width: 105px;
   height: 40px;
-  justify-content: center;
+  overflow: hidden;
+}
+
+.counterWrapper.small {
+  width: 84px;
+  height: 35px;
+  padding-right: 0;
 }
 
 .counterButton {
+  width: 28px;
   flex: 1;
 }
 
@@ -28,6 +35,10 @@
 
 .counterButton.disabled svg {
   color: var(--vkui--color_text_tertiary);
+}
+
+.counterButton.small svg {
+  width: 28px;
 }
 
 .counterNumber {
