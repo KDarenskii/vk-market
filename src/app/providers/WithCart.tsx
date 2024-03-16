@@ -8,7 +8,13 @@ export const WithCart: FC<PropsWithChildren> = ({ children }) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchCartItems());
+    const { abort, signal } = new AbortController();
+
+    dispatch(fetchCartItems({ signal }));
+
+    return () => {
+      abort();
+    };
   }, [dispatch]);
 
   return <>{children}</>;
