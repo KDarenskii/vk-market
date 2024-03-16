@@ -7,10 +7,12 @@ export {
   increaseCartItemAmount,
   removeCartItem,
   clearCart,
+  addCartItem,
 } from './store/cartStore';
 export type { CartItem } from './types/cartItem';
 export { CartService } from './services/CartService';
 export { selectCartItem } from './store/selectors/selectCartItem';
 export { selectCart } from './store/selectors/selectCart';
+export { selectCartProduct } from './store/selectors/selectCartProduct';
 export { fetchCartItems } from './store/thunks/fetchCartItems';
 export { CartEmptyPlaceholder } from './components/CartEmptyPlaceholder';
