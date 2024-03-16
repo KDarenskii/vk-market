@@ -4,7 +4,7 @@ import { CartHeader, CartTotalPrice } from 'features/cart';
 
 import { CartEmptyPlaceholder, CartItem, selectCart } from 'entities/cart';
 
-import { ErrorPlaceholder } from 'shared/components';
+import { Container, ErrorPlaceholder } from 'shared/components';
 import { useAppSelector } from 'shared/hooks';
 
 import { Div, Group, PanelSpinner, Separator, Spacing } from '@vkontakte/vkui';
@@ -15,26 +15,28 @@ export const Cart: FC = () => {
   const { isLoading, cartItems, error } = useAppSelector(selectCart);
 
   return (
-    <Div>
-      <Group>
-        <CartHeader />
-        <Spacing size={16} />
-        <Separator />
-        <Spacing size={16} />
-        <Loader isLoading={isLoading} />
-        <Error isError={!!error} />
-        <EmptyStateMessage
-          isError={!!error}
-          isLoading={isLoading}
-          cartItemsLength={cartItems.length}
-        />
-        <CartContent
-          cartItems={cartItems}
-          isError={!!error}
-          isLoading={isLoading}
-        />
-      </Group>
-    </Div>
+    <Container maxWidth={1100}>
+      <Div>
+        <Group>
+          <CartHeader />
+          <Spacing size={16} />
+          <Separator />
+          <Spacing size={16} />
+          <Loader isLoading={isLoading} />
+          <Error isError={!!error} />
+          <EmptyStateMessage
+            isError={!!error}
+            isLoading={isLoading}
+            cartItemsLength={cartItems.length}
+          />
+          <CartContent
+            cartItems={cartItems}
+            isError={!!error}
+            isLoading={isLoading}
+          />
+        </Group>
+      </Div>
+    </Container>
   );
 };
 
