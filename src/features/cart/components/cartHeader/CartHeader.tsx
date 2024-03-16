@@ -36,12 +36,12 @@ export const CartHeader: FC = () => {
             onClick={() => dispatch(clearCart())}
             after={<Icon20DeleteOutline />}
           >
-            Очистить корзину
+            Очистить
           </Button>
         )
       }
     >
-      Корзина товаров
+      Корзина
     </Header>
   );
 };
