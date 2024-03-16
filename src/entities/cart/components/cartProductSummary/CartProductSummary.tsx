@@ -13,7 +13,7 @@ interface CartProductSummaryProps {
 export const CartProductSummary: FC<CartProductSummaryProps> = ({ price }) => {
   return (
     <div className={styles.productSummary}>
-      <Title weight="1">
+      <Title weight="1" level='2'>
         Итого:{' '}
         <span className={styles.price}>{formatCurrency(price)}</span>
       </Title>

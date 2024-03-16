@@ -9,3 +9,16 @@
 .productImageWrapper img {
   object-fit: contain;
 }
+
+.cartItemActions {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+@media (max-width: 650px) {
+  .cartItemWrapper {
+    flex-direction: column;
+  }
+}

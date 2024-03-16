@@ -1,16 +1,31 @@
 .counterWrapper {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   border: 1px solid;
   padding-right: 12px;
   border-radius: var(--vkui--size_border_radius_paper--regular);
   border: 1px solid rgb(55, 55, 55);
   color: var(--vkui--color_text_primary);
+  width: 105px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.counterWrapper.small {
+  width: 84px;
+  height: 35px;
+  padding-right: 0;
+}
+
+.counterButton {
+  width: 28px;
+  flex: 1;
 }
 
 .counterButton svg {
   color: var(--vkui--color_text_accent);
+  margin: auto;
 }
 
 .counterButton.disabled {
@@ -22,6 +37,10 @@
   color: var(--vkui--color_text_tertiary);
 }
 
+.counterButton.small svg {
+  width: 28px;
+}
+
 .counterNumber {
-  font-size: 21px;
+  font-size: 18px;
 }

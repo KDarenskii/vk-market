@@ -1,8 +1,10 @@
 .productInfo {
   flex: 1;
+  white-space: normal;
 }
 
 .productCategory {
+  white-space: nowrap;
   max-width: min-content;
 }
 
