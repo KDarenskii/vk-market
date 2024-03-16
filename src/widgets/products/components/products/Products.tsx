@@ -13,6 +13,7 @@ import { Container, ErrorPlaceholder } from 'shared/components';
 import { useAppSelector } from 'shared/hooks';
 
 import {
+  Div,
   Group,
   PanelSpinner,
   Separator,
@@ -39,25 +40,27 @@ export const Products: FC = () => {
         stretchedOnMobile
         className={styles.productsWrapper}
       >
-        <Group>
-          <ProductsHeader />
-          <Spacing size={16} />
-          <Separator />
-          <Spacing size={16} />
-          <ProductsSearch />
-          <Loader isLoading={isLoading} />
-          <Error isError={!!error} />
-          <EmptyStateMessage
-            isError={!!error}
-            isLoading={isLoading}
-            productsLength={products.length}
-          />
-          <ProductsContent
-            products={products}
-            isError={!!error}
-            isLoading={isLoading}
-          />
-        </Group>
+        <Div>
+          <Group>
+            <ProductsHeader />
+            <Spacing size={16} />
+            <Separator />
+            <Spacing size={16} />
+            <ProductsSearch />
+            <Loader isLoading={isLoading} />
+            <Error isError={!!error} />
+            <EmptyStateMessage
+              isError={!!error}
+              isLoading={isLoading}
+              productsLength={products.length}
+            />
+            <ProductsContent
+              products={products}
+              isError={!!error}
+              isLoading={isLoading}
+            />
+          </Group>
+        </Div>
       </SplitCol>
     </Container>
   );
