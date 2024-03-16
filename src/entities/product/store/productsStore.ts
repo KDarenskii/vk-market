@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { fetchProducts } from '..';
 
@@ -7,7 +7,11 @@ import { defaultProductsState } from './defaultState';
 const productsSlice = createSlice({
   name: 'products',
   initialState: defaultProductsState,
-  reducers: {},
+  reducers: {
+    setProductsQuery: (state, action: PayloadAction<string | null>) => {
+      state.query = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -28,4 +32,5 @@ const productsSlice = createSlice({
   },
 });
 
+export const { setProductsQuery } = productsSlice.actions;
 export const productsReducer = productsSlice.reducer;

@@ -1,12 +1,13 @@
 import { FC, useEffect } from 'react';
 
-import { ProductsHeader } from 'features/product';
+import { ProductsHeader, ProductsSearch } from 'features/product';
 
 import {
   Product,
   ProductsEmptyPlaceholder,
   fetchProducts,
   selectProductsState,
+  selectSearchProducts,
 } from 'entities/product';
 
 import { Container, ErrorPlaceholder } from 'shared/components';
@@ -27,7 +28,8 @@ import styles from './products.module.css';
 export const Products: FC = () => {
   const dispatch = useAppDispatch();
 
-  const { isLoading, products, error } = useAppSelector(selectProductsState);
+  const products = useAppSelector(selectSearchProducts);
+  const { isLoading, error } = useAppSelector(selectProductsState);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -45,6 +47,7 @@ export const Products: FC = () => {
           <Spacing size={16} />
           <Separator />
           <Spacing size={16} />
+          <ProductsSearch />
           <Loader isLoading={isLoading} />
           <Error isError={!!error} />
           <EmptyStateMessage
