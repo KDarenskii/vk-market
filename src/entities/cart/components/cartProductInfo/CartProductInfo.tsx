@@ -24,7 +24,7 @@ export const CartProductInfo: FC<CartProductInfoProps> = ({
       <Counter className={styles.productCategory} size="s" mode="secondary">
         {category}
       </Counter>
-      <Title level="3">{title} </Title>
+      <Title level="3">{title}</Title>
       <Headline>{description}</Headline>
       <Text weight="2" className={styles.productPrice}>
         {formatCurrency(price)}
