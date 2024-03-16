@@ -8,12 +8,12 @@ export const useProducts = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const { abort, signal } = new AbortController();
+    const controller = new AbortController();
 
-    dispatch(fetchProducts({ signal }));
+    dispatch(fetchProducts({ signal: controller.signal }));
 
     return () => {
-      abort();
+      controller.abort();
     };
   }, [dispatch]);
 };
