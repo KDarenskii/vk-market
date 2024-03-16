@@ -1,0 +1,27 @@
+.productCardWrapper {
+  position: relative;
+}
+
+.productCardWrapper.actions {
+  margin-bottom: 20px;
+}
+
+.productCard {
+  height: 100%;
+}
+
+.productCard.actions {
+  padding-bottom: 20px;
+}
+
+.productCard img {
+  object-fit: fill;
+}
+
+.productCardActionsWrapper {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: calc(100% - var(--vkui--size_base_padding_horizontal--regular) * 2);
+  padding: 0 var(--vkui--size_base_padding_horizontal--regular);
+}
