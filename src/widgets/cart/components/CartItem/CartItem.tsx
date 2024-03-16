@@ -8,7 +8,12 @@ import {
 
 import { CartProductInfo, CartItem as ICartItem } from 'entities/cart';
 
-import { Cell, Group, Image } from '@vkontakte/vkui';
+import {
+  Cell,
+  Group,
+  Image,
+  useAdaptivityConditionalRender,
+} from '@vkontakte/vkui';
 
 import styles from './cartItem.module.css';
 
@@ -17,13 +22,22 @@ interface CartItemProps {
 }
 
 export const CartItem: FC<CartItemProps> = ({ cartItem }) => {
+  const { viewWidth } = useAdaptivityConditionalRender();
+
   const { product, id } = cartItem;
 
   return (
     <Group className={styles.cartItemWrapper} mode="plain">
       <Cell
         className={styles.cartProduct}
-        after={<CartItemAmount cartItemId={id} />}
+        after={
+          viewWidth.tabletPlus && (
+            <CartItemAmount
+              className={viewWidth.tabletPlus.className}
+              cartItemId={id}
+            />
+          )
+        }
         before={
           <Image
             size={110}
@@ -38,7 +52,16 @@ export const CartItem: FC<CartItemProps> = ({ cartItem }) => {
           price={product.price}
           title={product.title}
         />
-        <CartItemDeleteButton cartItemId={cartItem.id} />
+        <div className={styles.cartItemActions}>
+          <CartItemDeleteButton cartItemId={cartItem.id} />
+          {viewWidth.tabletMinus && (
+            <CartItemAmount
+              className={viewWidth.tabletMinus.className}
+              cartItemId={id}
+              size="s"
+            />
+          )}
+        </div>
       </Cell>
       <CartItemPrice cartItemId={id} />
     </Group>
