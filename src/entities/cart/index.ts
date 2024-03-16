@@ -8,7 +8,7 @@ export {
   removeCartItem,
   clearCart,
   addCartItem,
-} from './store/cartStore';
+} from './store/cartSlice';
 export type { CartItem } from './types/cartItem';
 export { CartService } from './services/CartService';
 export { selectCartItem } from './store/selectors/selectCartItem';

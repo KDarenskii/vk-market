@@ -1,11 +1,22 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { AxiosRequestConfig } from 'axios';
 
-import { ProductsService } from 'entities/product';
+import { Product, ProductsService } from 'entities/product';
 
-export const fetchProducts = createAsyncThunk(
-  'products/fetchProducts',
-  async function () {
-    const response = await ProductsService.getProducts();
+import { isCancelError } from 'shared/helpers';
+
+export const fetchProducts = createAsyncThunk<
+  Product[],
+  AxiosRequestConfig | undefined
+>('products/fetchProducts', async function (config, { rejectWithValue }) {
+  try {
+    const response = await ProductsService.getProducts(config);
     return response.data;
+  } catch (error) {
+    if (isCancelError(error)) {
+      return rejectWithValue('canceled');
+    } else {
+      return rejectWithValue('Something went wrong');
+    }
   }
-);
+});

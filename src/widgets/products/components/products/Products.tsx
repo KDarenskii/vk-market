@@ -1,17 +1,16 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
 import { ProductsHeader, ProductsSearch } from 'features/product';
 
 import {
   Product,
   ProductsEmptyPlaceholder,
-  fetchProducts,
   selectProductsState,
   selectSearchProducts,
 } from 'entities/product';
 
 import { Container, ErrorPlaceholder } from 'shared/components';
-import { useAppDispatch, useAppSelector } from 'shared/hooks';
+import { useAppSelector } from 'shared/hooks';
 
 import {
   Group,
@@ -23,17 +22,15 @@ import {
 
 import { ProductsList } from '../productsList';
 
+import { useProducts } from './useProducts';
+
 import styles from './products.module.css';
 
 export const Products: FC = () => {
-  const dispatch = useAppDispatch();
-
   const products = useAppSelector(selectSearchProducts);
   const { isLoading, error } = useAppSelector(selectProductsState);
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+  useProducts();
 
   return (
     <Container>
