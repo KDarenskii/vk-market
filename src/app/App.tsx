@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { WithCart } from './providers/WithCart';
 import { WithRedux } from './providers/WithRedux';
 import { Router } from './providers/WithRouter';
 import { WithTheme } from './providers/WithTheme';
@@ -10,7 +11,9 @@ export const App: FC = () => {
     <WithTheme>
       <WithUIKitConfig>
         <WithRedux>
-          <Router />
+          <WithCart>
+            <Router />
+          </WithCart>
         </WithRedux>
       </WithUIKitConfig>
     </WithTheme>
