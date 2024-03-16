@@ -7,6 +7,7 @@ import {
   ProductsEmptyPlaceholder,
   fetchProducts,
   selectProductsState,
+  selectSearchProducts,
 } from 'entities/product';
 
 import { Container, ErrorPlaceholder } from 'shared/components';
@@ -27,7 +28,8 @@ import styles from './products.module.css';
 export const Products: FC = () => {
   const dispatch = useAppDispatch();
 
-  const { isLoading, products, error } = useAppSelector(selectProductsState);
+  const products = useAppSelector(selectSearchProducts);
+  const { isLoading, error } = useAppSelector(selectProductsState);
 
   useEffect(() => {
     dispatch(fetchProducts());
