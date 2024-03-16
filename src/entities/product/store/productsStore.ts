@@ -7,3 +7,6 @@ const productsSlice = createSlice({
   initialState: defaultProductsState,
   reducers: {},
 });
+
+export const {} = productsSlice.actions;
+export const productsReducer = productsSlice.reducer;
