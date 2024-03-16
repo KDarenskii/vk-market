@@ -24,10 +24,12 @@ const productsSlice = createSlice({
         state.isLoading = false;
         state.products = action.payload;
       })
-      .addCase(fetchProducts.rejected, (state) => {
-        state.error = 'Что-то пошло не так';
-        state.isLoading = false;
-        state.products = [];
+      .addCase(fetchProducts.rejected, (state, action) => {
+        if (action.payload !== 'canceled') {
+          state.error = 'Что-то пошло не так';
+          state.isLoading = false;
+          state.products = [];
+        }
       });
   },
 });
