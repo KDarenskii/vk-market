@@ -3,12 +3,13 @@ import { FC, useEffect } from 'react';
 import { ProductsHeader } from 'features/product';
 
 import {
+  Product,
   ProductsEmptyPlaceholder,
   fetchProducts,
   selectProductsState,
 } from 'entities/product';
 
-import { Container } from 'shared/components';
+import { Container, ErrorPlaceholder } from 'shared/components';
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 
 import {
@@ -26,7 +27,7 @@ import styles from './products.module.css';
 export const Products: FC = () => {
   const dispatch = useAppDispatch();
 
-  const { isLoading, products } = useAppSelector(selectProductsState);
+  const { isLoading, products, error } = useAppSelector(selectProductsState);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -44,15 +45,60 @@ export const Products: FC = () => {
           <Spacing size={16} />
           <Separator />
           <Spacing size={16} />
-          {isLoading && <PanelSpinner>Список товаров загружается</PanelSpinner>}
-          {!isLoading && products.length === 0 && <ProductsEmptyPlaceholder />}
-          {!isLoading && products.length > 0 && (
-            <>
-              <ProductsList products={products} />
-            </>
-          )}
+          <Loader isLoading={isLoading} />
+          <Error isError={!!error} />
+          <EmptyStateMessage
+            isError={!!error}
+            isLoading={isLoading}
+            productsLength={products.length}
+          />
+          <ProductsContent
+            products={products}
+            isError={!!error}
+            isLoading={isLoading}
+          />
         </Group>
       </SplitCol>
     </Container>
   );
 };
+
+function ProductsContent({
+  isError,
+  isLoading,
+  products,
+}: {
+  isError: boolean;
+  isLoading: boolean;
+  products: Product[];
+}) {
+  if (isError || isLoading || products.length === 0) {
+    return null;
+  }
+  return <ProductsList products={products} />;
+}
+
+function Error({ isError }: { isError: boolean }) {
+  if (!isError) return null;
+  return <ErrorPlaceholder />;
+}
+
+function Loader({ isLoading }: { isLoading: boolean }) {
+  if (!isLoading) return null;
+  return <PanelSpinner>Список товаров загружается</PanelSpinner>;
+}
+
+function EmptyStateMessage({
+  isError,
+  isLoading,
+  productsLength,
+}: {
+  isError: boolean;
+  isLoading: boolean;
+  productsLength: number;
+}) {
+  if (isError || isLoading || productsLength > 0) {
+    return null;
+  }
+  return <ProductsEmptyPlaceholder />;
+}
