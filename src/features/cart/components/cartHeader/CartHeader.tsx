@@ -8,6 +8,8 @@ import { Button, Counter, Header } from '@vkontakte/vkui';
 
 import { Icon20DeleteOutline } from '@vkontakte/icons';
 
+import styles from './cartHeader.module.css';
+
 export const CartHeader: FC = () => {
   const dispatch = useAppDispatch();
 
@@ -15,6 +17,7 @@ export const CartHeader: FC = () => {
 
   return (
     <Header
+      className={styles.header}
       mode="primary"
       size="large"
       indicator={
