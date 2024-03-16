@@ -1,0 +1,11 @@
+.productRating {
+  margin-top: 4px;
+}
+
+.productRating svg {
+  display: inline;
+}
+
+.commentsIcon {
+  transform: translateY(2px);
+}
