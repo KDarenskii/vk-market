@@ -12,8 +12,9 @@
     "tunnel": "vk-tunnel --insecure=1 --http-protocol=https --ws-protocol=wss --host=0.0.0.0 --port=10888 app_id=51878613",
     "deploy:vk": "tsc && vite build && vk-miniapps-deploy",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "prettier": "prettier --check \"**/*.{ts,tsx}\"",
-    "check": "tsc && npm run prettier && npm run lint"
+    "prettier": "prettier --check \"**/*.{ts,tsx,json,css,md}\"",
+    "check": "tsc && npm run prettier && npm run lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
@@ -43,6 +44,7 @@
     "gh-pages": "^6.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.6",
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite-tsconfig-paths": "^4.3.2",
+    "husky": "^8.0.0"
   }
 }
