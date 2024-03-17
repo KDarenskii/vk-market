@@ -15,7 +15,12 @@
 }
 
 .productCard img {
+  min-height: 200px;
   object-fit: fill;
+  background-color: var(--vkui--color_background_secondary);
+  background-size: cover;
+  color: var(--vkui_internal--icon_color, var(--vkui--color_icon_secondary));
+  isolation: isolate;
 }
 
 .productCardActionsWrapper {
