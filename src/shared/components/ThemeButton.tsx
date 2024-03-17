@@ -13,7 +13,11 @@ export const ThemeButton: FC = () => {
   return (
     <IconButton onClick={toggleTheme}>
       <VisuallyHidden>Сменить тему</VisuallyHidden>
-      {theme === 'light' ? <Icon28SunOutline color='black' /> : <Icon28MoonOutline />}
+      {theme === 'light' ? (
+        <Icon28SunOutline color="black" />
+      ) : (
+        <Icon28MoonOutline />
+      )}
     </IconButton>
   );
 };
