@@ -2,16 +2,10 @@ import { FC } from 'react';
 
 import { useLocation, useNavigate } from 'react-router';
 
+import { CartButton, ThemeButton } from 'shared/components';
 import { routes } from 'shared/constants';
 
-import {
-  IconButton,
-  PanelHeader,
-  PanelHeaderBack,
-  usePlatform,
-} from '@vkontakte/vkui';
-
-import { Icon28ShoppingCartOutline } from '@vkontakte/icons';
+import { PanelHeader, PanelHeaderBack, usePlatform } from '@vkontakte/vkui';
 
 export const PageHeader: FC = () => {
   const platform = usePlatform();
@@ -24,14 +18,6 @@ export const PageHeader: FC = () => {
 
   return (
     <PanelHeader
-      after={
-        <IconButton
-          onClick={() => navigate(routes.cart.path)}
-          aria-label="Корзина"
-        >
-          <Icon28ShoppingCartOutline />
-        </IconButton>
-      }
       before={
         isCartPage && (
           <PanelHeaderBack
@@ -39,6 +25,12 @@ export const PageHeader: FC = () => {
             label={platform === 'vkcom' ? 'Назад' : undefined}
           />
         )
+      }
+      after={
+        <>
+          <ThemeButton />
+          <CartButton />
+        </>
       }
     >
       VK Market
