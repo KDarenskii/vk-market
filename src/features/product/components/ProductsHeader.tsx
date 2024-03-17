@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
-import { selectProductsState } from 'entities/product';
+import { selectSearchProducts } from 'entities/product';
 
 import { useAppSelector } from 'shared/hooks';
 
 import { Counter, Header } from '@vkontakte/vkui';
 
 export const ProductsHeader: FC = () => {
-  const { products } = useAppSelector(selectProductsState);
+  const products = useAppSelector(selectSearchProducts);
 
   return (
     <Header
