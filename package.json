@@ -13,7 +13,8 @@
     "deploy:vk": "tsc && vite build && vk-miniapps-deploy",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prettier": "prettier --check \"**/*.{ts,tsx}\"",
-    "check": "tsc && npm run prettier && npm run lint"
+    "check": "tsc && npm run prettier && npm run lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
@@ -43,6 +44,7 @@
     "gh-pages": "^6.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.6",
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite-tsconfig-paths": "^4.3.2",
+    "husky": "^8.0.0"
   }
 }
